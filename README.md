@@ -43,4 +43,4 @@ Private key:
 ### caveats
 
 make sure the regex you are passing is satisfiable, otherwise you will be wasting cpu time. chrome
-extensions are made up of all lowercase characters from `a` to `q`
+extensions are made up of all lowercase characters from `a` to `p`

@@ -56,7 +56,7 @@ const parseArguments = () => {
 };
 
 const checkString = (s: string) => {
-    if (!/^[a-q]*$/.test(s))
+    if (!/^[a-p]*$/.test(s))
         throw `unsatisfiable string: ${s}`;
     return s;
 }
