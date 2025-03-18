@@ -55,6 +55,12 @@ const parseArguments = () => {
     return { loose, mapping, empty };
 };
 
+const checkString = (s: string) => {
+    if (!/^[a-q]*$/.test(s))
+        throw `unsatisfiable string: ${s}`;
+    return s;
+}
+
 export type Arguments = {
     threads: number;
     regex?: RegExp;
@@ -77,13 +83,13 @@ export const tryParseArguments = () => {
         cleanArgs.regex = new RegExp(mapping.regex.replace(/^\//, '').replace(/\/$/, ''));
     }
     if (mapping['starts-with']) {
-        cleanArgs.startsWith = mapping['starts-with'];
+        cleanArgs.startsWith = checkString(mapping['starts-with']);
     }
     if (mapping['ends-with']) {
-        cleanArgs.endsWith = mapping['ends-with'];
+        cleanArgs.endsWith = checkString(mapping['ends-with']);
     }
     if (mapping.contains) {
-        cleanArgs.contains = mapping.contains;
+        cleanArgs.contains = checkString(mapping.contains);
     }
 
     if (empty || loose.length > 0 || Object.keys(cleanArgs).length < 2) {
