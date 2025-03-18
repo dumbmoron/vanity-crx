@@ -20,17 +20,16 @@ for matching, you need to specify at least one of:
 ```
 
 ```
-% deno run start --threads 10 '/^poop/'    
-Task start deno run --allow-read=worker.ts,lib.ts main.ts "--threads" "10" "/^poop/"
+% deno run start --threads 10 --starts-with 'poop'
+Task start deno run --allow-read=worker.ts,lib.ts main.ts "--threads" "10" "--starts-with" "poop"
 Running on 10 threads
-RegEx: /^poop/
 Found extension id: poopghebiomhhmmiihpimfnnahmcnhph
 Private key:
 -----BEGIN PRIVATE KEY-----
 ...
 -----END PRIVATE KEY-----
 
-% deno run start --threads 32 '/(.)\1{5,}/'
+% deno run start --threads 32 --regex '/(.)\1{5,}/'
 Task start deno run --allow-read=worker.ts,lib.ts main.ts "--threads" "32" "/(.)\1{5,}/"
 Running on 32 threads
 RegEx: /(.)\1{5,}/
